@@ -1,0 +1,15 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    working_directory: ~/GitRepo1
+    branches:
+      only:
+        - circleci-jobs
+    steps:
+      - run:
+          name: "GitRepo Build"
+          command: |
+            echo " This is GitRepo Build"
+            
