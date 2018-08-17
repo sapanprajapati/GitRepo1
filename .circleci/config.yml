@@ -1,15 +1,22 @@
 version: 2
 jobs:
-  build:
+  job1:
     docker:
       - image: circleci/openjdk:8-jdk
-    working_directory: ~/GitRepo1
-    branches:
-      only:
-        - circleci-jobs
     steps:
-      - run:
-          name: "GitRepo Build"
-          command: |
-            echo " This is GitRepo Build"
-            
+      - checkout
+      - run: echo "This is job1"
+  job2:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    steps:
+      - checkout
+      - run: echo "This is job2"
+     
+workflows:
+  version: 2
+    jobs:
+      - job1
+      - job2:
+          requires:
+            - job1
