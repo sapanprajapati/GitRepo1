@@ -24,6 +24,19 @@ jobs:
     steps:
       - checkout
       - run: echo "This is job4"
+  job5:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    steps:
+      - checkout
+      - run: echo "This is job5"
+   
+  job6:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    steps:
+      - checkout
+      - run: echo "This is job6"
      
 workflows:
   version: 2
@@ -40,3 +53,6 @@ workflows:
           requires:
             - job2
             - job3
+      - job5:
+          requires:
+            - job4
