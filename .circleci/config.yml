@@ -15,6 +15,7 @@ jobs:
      
 workflows:
   version: 2
+  job1-and-job2:
     jobs:
       - job1
       - job2:
