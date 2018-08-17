@@ -12,12 +12,29 @@ jobs:
     steps:
       - checkout
       - run: echo "This is job2"
+  job3:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    steps:
+      - checkout
+      - run: echo "This is job2"
+      
+  job3:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    steps:
+      - checkout
+      - run: echo "This is job3"
+   job4:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    steps:
+      - checkout
+      - run: echo "This is job4"
      
 workflows:
   version: 2
   job1-and-job2:
     jobs:
       - job1
-      - job2:
-          requires:
-            - job1
+      - job2
